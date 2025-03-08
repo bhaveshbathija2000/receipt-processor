@@ -13,7 +13,7 @@ A RESTful Spring Boot API that processes receipts and calculates points based on
 
 ## 🔧 Installation & Setup
 
-### **Run Locally**
+### **🖥️ Run Locally**
 1. Clone the repository:
    ```sh
    git clone https://github.com/your-username/receipt-processor.git
@@ -25,20 +25,30 @@ A RESTful Spring Boot API that processes receipts and calculates points based on
    mvn spring-boot:run
    ```
 3. **Access API Documentation:**
-    - Swagger UI: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+   - Swagger UI: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
 ---
 
 ## 🐳 **Run with Docker**
-### **1️⃣ Build the Docker Image**
+
+### **1️⃣ Build the JAR Before Running Docker**
+Before building the Docker image, you must first generate the `target/` folder by running:
+
+```sh
+mvn clean package
+```
+
+This will create the `target/receipt-processor-0.0.1-SNAPSHOT.jar` file, which Docker needs.
+
+### **2️⃣ Build the Docker Image**
 ```sh
 docker build -t receipt-processor .
 ```
-### **2️⃣ Run the Docker Container**
+### **3️⃣ Run the Docker Container**
 ```sh
 docker run -p 8080:8080 receipt-processor
 ```
-### **3️⃣ Stop the Container**
+### **4️⃣ Stop the Container**
 ```sh
 docker ps  # Find container ID
 docker stop <container_id>
@@ -120,7 +130,7 @@ receipt-processor/
 │   │   │   ├── application.properties  # Spring Boot config
 │   │   │   ├── api.yml  # API Specification
 │── test/
-│── target/  # Contains the built JAR
+│── target/  # Contains the built JAR (generated)
 │── .mvn/
 │── .gitignore
 │── .dockerignore
