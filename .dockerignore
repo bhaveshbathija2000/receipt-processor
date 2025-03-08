@@ -1,0 +1,10 @@
+#target/
+#*.jar
+#*.iml
+#*.class
+#.idea/
+#*.md
+#*.log
+#node_modules/
+#dist/
+#.env
